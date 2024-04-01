@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
-const schema = mongoose.schema;
+const Schema = mongoose.Schema;
 
 const BookInstanceSchema = new Schema({
-    book: { type: schema.Types.ObjectId, ref: "Book", required: true }, //this is a virtual field that references the id of the book
+    book: { type: Schema.Types.ObjectId, ref: "Book", required: true }, //this is a virtual field that references the id of the book
     imprint: { type: String, required: true },
     status: {
         type: String,
