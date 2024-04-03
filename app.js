@@ -8,12 +8,12 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const catalog = require("./routes/catalog"); // Import routes for "catalog" area of site
 
-var app = express();
+const app = express();
 
 // Set up mongoose connection
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
-const mongoDB = "mongodb+srv://sjha13390:V3TDGu8FwY1BhFcx@cluster0.tiz3wdh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const mongoDB = "mongodb+srv://surajdb:WVaX03fy1hjiGk1p@cluster0.qmfbepu.mongodb.net/local_library?retryWrites=true&w=majority&appName=Cluster0";
 
 main().catch((err) => console.log(err));
 async function main() {

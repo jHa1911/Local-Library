@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { DateTime } = require("luxon");
 
 const Schema = mongoose.Schema;
 
@@ -9,6 +10,12 @@ const AuthorSchema = new Schema({
     date_of_death: { type: Date },
 });
 
+// Virtual for author's lifespan, to show on the book template page
+AuthorSchema.virtual("lifespan").get(function () {
+    let birth = DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED);
+    let death = this.date_of_death ? DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED) : "Present";
+    return `${birth} - ${death}`;
+});
 // Virtual for author's full name
 AuthorSchema.virtual("name").get(function () {
     // To avoid errors in cases where an author does not have either a family name or first name
