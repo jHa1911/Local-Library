@@ -15,7 +15,6 @@ exports.genre_list = asyncHandler(async (req, res, next) => {
 });
 
 // Display detail page for a specific Genre.
-// Display detail page for a specific Genre.
 exports.genre_detail = asyncHandler(async (req, res, next) => {
     // Get details of genre and all associated books (in parallel)
     const [genre, booksInGenre] = await Promise.all([
